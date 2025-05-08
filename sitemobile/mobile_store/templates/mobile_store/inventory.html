@@ -19,9 +19,9 @@
     <nav>
         <div class="container">
             <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="dashboard.html">Панель управления</a></li>
-                <li class="active"><a href="inventory.html">Учет товаров</a></li>
+                <li><a href="{% url 'index' %}">Главная</a></li>
+                <li><a href="{% url 'dashboard' %}">Панель управления</a></li>
+                <li class="active"><a href="{% url 'inventory' %}">Учет товаров</a></li>
             </ul>
         </div>
     </nav>
@@ -57,14 +57,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for product in products %}
+                    {% for product in products %}   
                     <tr>
                         <td>{{ product.id }}</td>
                         <td>{{ product.name }}</td>
                         <td>{{ product.category }}</td>
                         <td>{{ product.quantity }}</td>
                         <td>₽{{ product.price }}</td>
-                        <td class="status-{{ product.status_class }}">{{ product.status_text }}</td>
+                        <td class="status">{{ product.status_text }}</td>
                         <td>
                             <button class="small-btn">Изменить</button>
                             <button class="small-btn danger">Удалить</button>

@@ -17,9 +17,9 @@
     <nav>
         <div class="container">
             <ul>
-                <li class="active"><a href="index.html">Главная</a></li>
-                <li><a href="dashboard.html">Панель управления</a></li>
-                <li><a href="inventory.html">Учет товаров</a></li>
+                <li class="active"><a href="{% url 'index' %}">Главная</a></li>
+                <li><a href="{% url 'dashboard' %}">Панель управления</a></li>
+                <li><a href="{% url 'inventory' %}">Учет товаров</a></li>
             </ul>
         </div>
     </nav>

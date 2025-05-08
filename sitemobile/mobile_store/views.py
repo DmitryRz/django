@@ -13,12 +13,25 @@ def dashboard(request):
 
 def inventory(request):
     products = [{
-            "id": 1,
+            "id": 1, 
             "name": "iPhone 14",
             "category": "Телефоны",
             "quantity": 10,
             "price": 100000,
-            "status_class": "success",
+            "status_text": "В наличии"
+    }, {
+            "id": 2,
+            "name": "iPhone 13",
+            "category": "Телефоны",
+            "quantity": 0,
+            "price": 80000,
+            "status_text": "Нет в наличии"
+    }, {
+            "id": 3,
+            "name": "iPhone 12",
+            "category": "Телефоны",
+            "quantity": 5,
+            "price": 60000,
             "status_text": "В наличии"
     }]
     data["products"] = products
