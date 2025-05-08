@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учет товаров - {{ company }}</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Учет товарных запасов</h1>
+            <p>Магазин сотовой связи "{{ company }}"</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="dashboard.html">Панель управления</a></li>
+                <li class="active"><a href="inventory.html">Учет товаров</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="inventory-controls">
+            <h2>Управление товарными запасами</h2>
+            <div class="filter-bar">
+                <input type="text" placeholder="Поиск товара...">
+                <select>
+                    <option>Все категории</option>
+                    <option>Смартфоны</option>
+                    <option>Аксессуары</option>
+                    <option>SIM-карты</option>
+                    <option>Планшеты</option>
+                </select>
+                <button class="primary-btn">Применить</button>
+                <button class="secondary-btn">Сбросить</button>
+            </div>
+        </section>
+
+        <section class="inventory-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Наименование</th>
+                        <th>Категория</th>
+                        <th>Количество</th>
+                        <th>Цена</th>
+                        <th>Статус</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <td>{{ product.id }}</td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.category }}</td>
+                        <td>{{ product.quantity }}</td>
+                        <td>₽{{ product.price }}</td>
+                        <td class="status-{{ product.status_class }}">{{ product.status_text }}</td>
+                        <td>
+                            <button class="small-btn">Изменить</button>
+                            <button class="small-btn danger">Удалить</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="table-actions">
+                <button class="primary-btn">Добавить товар</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Система учета товарных запасов © 2023</p>
+            <p>Магазин сотовой связи "{{ company }}"</p>
+        </div>
+    </footer>
+</body>
+
+</html>

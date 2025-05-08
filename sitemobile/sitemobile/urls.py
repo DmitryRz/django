@@ -5,7 +5,7 @@ from .views import page_not_found
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('mobile_store/', include('mobile_store.urls')), 
+    path('', include('mobile_store.urls')), 
 ]
 
 

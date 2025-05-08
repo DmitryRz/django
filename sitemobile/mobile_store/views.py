@@ -1,14 +1,25 @@
-from django.http import HttpResponse
-from django.shortcuts import render, redirect
-from django.urls import reverse
+from itertools import product
+from django.shortcuts import render
 
-# Create your views here.
+data = { "company": "ООО Мобильная связь"}
+
 def index(request):
-    return HttpResponse("Первая страница сайта на Django")
+    return render(request, "mobile_store/index.html", context=data)
 
-def catalog(request, category):
-    if request.GET:
-        print(request.GET)
-        url = reverse("catalog/", args=(request.GET[0]))
-        return redirect("index")
-    return HttpResponse(f'<h1>Каталог товаров</h1><p>Категория: {category}</p>')
+
+def dashboard(request):
+    return render(request, "mobile_store/dashboard.html", context=data)
+
+
+def inventory(request):
+    products = [{
+            "id": 1,
+            "name": "iPhone 14",
+            "category": "Телефоны",
+            "quantity": 10,
+            "price": 100000,
+            "status_class": "success",
+            "status_text": "В наличии"
+    }]
+    data["products"] = products
+    return render(request, "mobile_store/inventory.html", context=data)
