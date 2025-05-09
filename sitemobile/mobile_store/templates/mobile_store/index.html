@@ -1,93 +1,65 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ company }} - Магазин сотовой связи</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1>{{ company }} - ваш оператор связи</h1>
-            <p>Официальный магазин сотовой связи в вашем городе</p>
-        </div>
-    </header>
-    
-    <nav>
-        <div class="container">
-            <ul>
-                <li class="active"><a href="{% url 'index' %}">Главная</a></li>
-                <li><a href="{% url 'dashboard' %}">Панель управления</a></li>
-                <li><a href="{% url 'inventory' %}">Учет товаров</a></li>
-            </ul>
-        </div>
-    </nav>
-    
-    <main class="container">
-        <section class="about">
-            <h2>О нашем магазине</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Мы - официальный магазин сотовой связи "{{ company }}", работающий на рынке с 2010 года. Наш магазин предлагает широкий ассортимент мобильных устройств, аксессуаров и услуг связи.</p>
-                    <p>Наши преимущества:</p>
-                    <ul>
-                        <li>Официальная гарантия на все товары</li>
-                        <li>Широкий выбор смартфонов и планшетов</li>
-                        <li>Профессиональные консультации</li>
-                        <li>Выгодные тарифы на услуги связи</li>
-                        <li>Сервисный центр в магазине</li>
-                    </ul>
-                </div>
+{% extends "base.html" %}
+
+{% block title %}ООО "Мобильная связь" - Магазин сотовой связи{% endblock %}
+
+{% block header_title %}ООО "Мобильная связь" - ваш оператор связи{% endblock %}
+{% block header_subtitle %}Официальный магазин сотовой связи в вашем городе{% endblock %}
+
+{% block content %}
+    <section class="about">
+        <h2>О нашем магазине</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Мы - официальный магазин сотовой связи "ООО "Мобильная связь"", работающий на рынке с 2010 года. Наш магазин предлагает широкий ассортимент мобильных устройств, аксессуаров и услуг связи.</p>
+                <p>Наши преимущества:</p>
+                <ul>
+                    <li>Официальная гарантия на все товары</li>
+                    <li>Широкий выбор смартфонов и планшетов</li>
+                    <li>Профессиональные консультации</li>
+                    <li>Выгодные тарифы на услуги связи</li>
+                    <li>Сервисный центр в магазине</li>
+                </ul>
             </div>
-        </section>
-        
-        <section class="services">
-            <h2>Наши услуги</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Продажа смартфонов</h3>
-                    <p>Широкий выбор современных смартфонов от ведущих производителей</p>
-                </div>
-                <div class="service-card">
-                    <h3>Подключение к сети</h3>
-                    <p>Оформление SIM-карт и подключение к лучшим тарифам</p>
-                </div>
-                <div class="service-card">
-                    <h3>Ремонт устройств</h3>
-                    <p>Квалифицированный ремонт любой сложности</p>
-                </div>
-                <div class="service-card">
-                    <h3>Аксессуары</h3>
-                    <p>Чехлы, защитные стекла, гарнитуры и другие аксессуары</p>
-                </div>
-            </div>
-        </section>
-        
-        <section class="contacts">
-            <h2>Контакты</h2>
-            <div class="contacts-grid">
-                <div>
-                    <h3>Адрес</h3>
-                    <p>г. Казань, ул. Московская, д. 123</p>
-                </div>
-                <div>
-                    <h3>Телефон</h3>
-                    <p>+7 (495) 123-45-67</p>
-                </div>
-                <div>
-                    <h3>Часы работы</h3>
-                    <p>Пн-Пт: 10:00-20:00<br>Сб-Вс: 11:00-18:00</p>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <footer>
-        <div class="container">
-            <p>Магазин сотовой связи "{{ company }}" © 2023</p>
-            <p>Все права защищены</p>
         </div>
-    </footer>
-</body>
-</html>
+    </section>
+    
+    <section class="services">
+        <h2>Наши услуги</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Продажа смартфонов</h3>
+                <p>Широкий выбор современных смартфонов от ведущих производителей</p>
+            </div>
+            <div class="service-card">
+                <h3>Подключение к сети</h3>
+                <p>Оформление SIM-карт и подключение к лучшим тарифам</p>
+            </div>
+            <div class="service-card">
+                <h3>Ремонт устройств</h3>
+                <p>Квалифицированный ремонт любой сложности</p>
+            </div>
+            <div class="service-card">
+                <h3>Аксессуары</h3>
+                <p>Чехлы, защитные стекла, гарнитуры и другие аксессуары</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="contacts">
+        <h2>Контакты</h2>
+        <div class="contacts-grid">
+            <div>
+                <h3>Адрес</h3>
+                <p>г. Казань, ул. Московская, д. 123</p>
+            </div>
+            <div>
+                <h3>Телефон</h3>
+                <p>+7 (495) 123-45-67</p>
+            </div>
+            <div>
+                <h3>Часы работы</h3>
+                <p>Пн-Пт: 10:00-20:00<br>Сб-Вс: 11:00-18:00</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}
