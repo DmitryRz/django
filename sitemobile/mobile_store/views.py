@@ -26,4 +26,19 @@ def inventory(request, category_id=0):
     context["active_page"] = "inventory"
     context["current_category"] = category_id
     
+    # Получаем все категории для фильтра
+    categories = list(Product.objects.values("category").distinct())
+    categories.insert(0, {'id': 0, 'category': 'Все категории'})
+    
+    # Фильтруем товары:
+    if category_id == 0:
+        products = Product.objects.all()  # Все товары
+    else:
+        # Находим выбранную категорию (по индексу, т.к. id = порядковый номер)
+        selected_category = categories[category_id]['category']
+        products = Product.objects.filter(category=selected_category)
+
+    context["products"] = products
+        
+    
     return render(request, "mobile_store/inventory.html", context)
