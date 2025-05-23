@@ -12,7 +12,7 @@
         <div class="filter-bar">
             <input type="text" placeholder="Поиск товара..." id="search-input">
            
-            {% filter_bars current_category %}
+             {% comment %} {% filter_bars current_category %}  {% endcomment %}
 
             <button class="primary-btn" onclick="applyFilter()">Применить</button>
             <button class="secondary-btn" onclick="resetFilter()">Сбросить</button>
@@ -30,7 +30,6 @@
                     <th>Категория</th>
                     <th>Количество</th>
                     <th>Цена</th>
-                    <th>Статус</th>
                     <th>Действия</th>
                 </tr>
             </thead>
@@ -42,7 +41,6 @@
                     <td>{{ product.category }}</td>
                     <td>{{ product.quantity }}</td>
                     <td>₽{{ product.price }}</td>
-                    <td class="status">{{ product.status_text }}</td>
                     <td>
                         <button class="small-btn">Изменить</button>
                         <button class="small-btn danger">Удалить</button>
