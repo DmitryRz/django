@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load mobile_store_tags %}
 
 {% block title %}Учет товаров - ООО "Мобильная связь"{% endblock %}
 
@@ -9,18 +10,16 @@
     <section class="inventory-controls">
         <h2>Управление товарными запасами</h2>
         <div class="filter-bar">
-            <input type="text" placeholder="Поиск товара...">
-            <select>
-                <option>Все категории</option>
-                <option>Смартфоны</option>
-                <option>Аксессуары</option>
-                <option>SIM-карты</option>
-                <option>Планшеты</option>
-            </select>
-            <button class="primary-btn">Применить</button>
-            <button class="secondary-btn">Сбросить</button>
+            <input type="text" placeholder="Поиск товара..." id="search-input">
+           
+            {% filter_bars current_category %}
+
+            <button class="primary-btn" onclick="applyFilter()">Применить</button>
+            <button class="secondary-btn" onclick="resetFilter()">Сбросить</button>
         </div>
     </section>
+
+
 
     <section class="inventory-table">
         <table>
@@ -57,4 +56,16 @@
             <button class="primary-btn">Добавить товар</button>
         </div>
     </section>
+
+
+    <script>
+    function applyFilter() {
+        const categoryId = document.getElementById('category-select').value;
+        window.location.href = `/inventory/${categoryId}/`;
+    }
+
+    function resetFilter() {
+        window.location.href = '/inventory/';
+    }
+    </script>
 {% endblock %}

@@ -1,0 +1,7 @@
+<select id="category-select">
+    {% for bar in bars %}
+    <option value="{{ bar.id }}" {% if bar.id == current_category %}selected{% endif %}>
+        {{ bar.name }}
+    </option>
+    {% endfor %}
+</select>
